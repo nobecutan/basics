@@ -1,0 +1,68 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Das 1x1</title>
+    <meta name="description" content="Das 1x1">
+    <meta name="author" content="Christof Rath">
+
+    <link rel="stylesheet" href="css/styles.css?v=1.0">
+</head>
+
+<body>
+    <div id="config">
+        <h1>Einstellungen</h1>
+        <div>
+            <select id="numItems" onchange="numItems=this.value; build();">
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="120">120</option>
+            </select> Rechnungen
+        </div>
+
+        <div id="grpBasic">
+            <span class="boxGrpHeader"><input id="selBasic" type="checkbox"
+                    onchange="selectBasics(this.checked)" />&nbsp;kleines&nbsp;1x1</span>
+            <span class="boxGrp">
+                <input id="fac1" type="checkbox" onchange="setConfig(1, this.checked);" />&#8239;1
+                <input id="fac2" type="checkbox" onchange="setConfig(2, this.checked);" />&#8239;2
+                <input id="fac3" type="checkbox" onchange="setConfig(3, this.checked);" />&#8239;3
+                <input id="fac4" type="checkbox" onchange="setConfig(4, this.checked);" />&#8239;4
+                <input id="fac5" type="checkbox" onchange="setConfig(5, this.checked);" />&#8239;5
+                <input id="fac6" type="checkbox" onchange="setConfig(6, this.checked);" />&#8239;6
+                <input id="fac7" type="checkbox" onchange="setConfig(7, this.checked);" />&#8239;7
+                <input id="fac8" type="checkbox" onchange="setConfig(8, this.checked);" />&#8239;8
+                <input id="fac9" type="checkbox" onchange="setConfig(9, this.checked);" />&#8239;9
+                <input id="fac10" type="checkbox" onchange="setConfig(10, this.checked);" />&#8239;10
+            </span>
+        </div>
+        <div id="grpToT">
+            <span class="boxGrpHeader"><input id="selToT" type="checkbox"
+                    onchange="selectToT(this.checked)" />&nbsp;großes&nbsp;1x1</span>
+            <span class="boxGrp">
+                <input id="fac11" type="checkbox" onchange="setConfig(11, this.checked);" />&#8239;11
+                <input id="fac12" type="checkbox" onchange="setConfig(12, this.checked);" />&#8239;12
+                <input id="fac13" type="checkbox" onchange="setConfig(13, this.checked);" />&#8239;13
+                <input id="fac14" type="checkbox" onchange="setConfig(14, this.checked);" />&#8239;14
+                <input id="fac15" type="checkbox" onchange="setConfig(15, this.checked);" />&#8239;15
+                <input id="fac25" type="checkbox" onchange="setConfig(25, this.checked);" />&#8239;25
+            </span>
+        </div>
+    </div>
+    <h1>Rechnungen</h1>
+    <div id="content" class="calc"></div>
+    <div id="resultPage">
+        <h1>Ergebnisse</h1>
+        <div id="result" class="calc"></div>
+    </div>
+    <div id="timer">00:00</div>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

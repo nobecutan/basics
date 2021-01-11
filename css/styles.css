@@ -1,0 +1,86 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    width: 48em;
+}
+
+#config {
+    border-bottom: 1px solid gray;
+    margin-bottom: 1em;
+    padding-bottom: 0.25em;
+}
+
+#config div {
+    margin-bottom: 0.5em;
+}
+
+
+.calc div {
+    padding: 0.25em;
+    min-width: 15em;
+}
+
+.boxGrpHeader {
+    width: 8.5em;
+    display: inline-block;
+}
+.boxGrp {
+    border: 1px solid gray;
+    padding: 0.25em;
+}
+@media print {
+    #config, #timer {
+        display: none;
+    }
+    #resultPage {
+        page-break-before: always;
+    }
+}
+@media screen {
+    #resultPage {
+        display: none;
+    }
+
+    #content {
+        margin-bottom: 3em;
+    }
+}
+
+.calc {
+    column-count: 3;
+    column-gap: 2em;
+    column-rule: solid 1px lightgray;
+}
+
+input[type=text] {
+    border-style: none;
+    border-bottom: 1px solid black;
+    width: 2em;
+    text-align: right;
+}
+input[disabled] {
+    border-style: none;
+    width: 2em;
+}
+
+.query {
+    border-bottom: 1px solid black!important;
+}
+
+.correct {
+    background-color: #00880022;
+}
+.incorrect {
+    background-color: #88000022;
+}
+
+#timer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-left: 0.25em;
+    font-size: xx-large;
+    color: gray;
+    background-color: #FFFFFF99;
+    margin-top: 0.25em;
+}
