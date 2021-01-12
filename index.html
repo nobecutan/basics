@@ -8,6 +8,7 @@
     <title>Das 1x1</title>
     <meta name="description" content="Das 1x1">
     <meta name="author" content="Christof Rath">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="css/styles.css?v=1.0">
 </head>
@@ -16,7 +17,7 @@
     <div id="config">
         <h1>Einstellungen</h1>
         <div>
-            <select id="numItems" onchange="numItems=this.value; build();">
+            <select id="numItems" onchange="setConfig(0, this.value);">
                 <option value="10">10</option>
                 <option value="15">15</option>
                 <option value="20">20</option>

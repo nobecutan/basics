@@ -1,6 +1,5 @@
 body {
     font-family: 'Courier New', Courier, monospace;
-    width: 48em;
 }
 
 #config {
@@ -26,6 +25,7 @@ body {
 .boxGrp {
     border: 1px solid gray;
     padding: 0.25em;
+    white-space: nowrap;
 }
 @media print {
     #config, #timer {
@@ -50,16 +50,38 @@ body {
     column-gap: 2em;
     column-rule: solid 1px lightgray;
 }
+@media screen and (max-width: 33em) {
+    .calc {
+        column-count: 1;
+        width: 16em;
+    }
+}
 
-input[type=text] {
+@media screen and (max-width: 50em) {
+    .calc {
+        column-count: 2;
+        width: 33em;
+    }
+}
+
+@media screen and (min-width: 50em) {
+    .calc {
+        column-count: 3;
+        width: 50em;
+    }
+}
+
+input[type=number] {
     border-style: none;
     border-bottom: 1px solid black;
-    width: 2em;
+    width: 3em;
     text-align: right;
+    background-color: unset;
 }
 input[disabled] {
     border-style: none;
-    width: 2em;
+    width: 3em;
+    background-color: unset;
 }
 
 .query {

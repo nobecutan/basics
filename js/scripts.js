@@ -1,4 +1,3 @@
-var numItems = 25;
 var askResultProbability = 2;
 var startTime = null;
 var timerHandle = null;
@@ -13,7 +12,8 @@ var factorProbability = {
     15: 3,
 }
 
-var selectedFactors = {
+const defaultNumItems = 25;
+const defaultSelectedFactors = JSON.stringify({
     1: true,
     2: true,
     3: true,
@@ -30,7 +30,20 @@ var selectedFactors = {
     14: true,
     15: true,
     25: true,
+});
+
+var numItems = localStorage.getItem("numItems");
+if (numItems == null) {
+    numItems = defaultNumItems;
+    localStorage.setItem("numItems", numItems);
 }
+
+var selectedFactors = JSON.parse(localStorage.getItem("selectedFactors"));
+if (selectedFactors == null) {
+    selectedFactors = defaultSelectedFactors;
+    localStorage.setItem("selectedFactors", selectedFactors);
+}
+console.log(selectedFactors[2]);
 
 function isAllBasics() {
     return selectedFactors[1] && selectedFactors[2] && selectedFactors[3] && selectedFactors[4] && selectedFactors[5] && selectedFactors[6] && selectedFactors[7] && selectedFactors[8] && selectedFactors[9] && selectedFactors[10];
@@ -64,10 +77,17 @@ function selectToT(enabled) {
     setConfig();
 }
 
-function setConfig(item = 0, value = false) {
-    if (item > 0) {
+function setConfig(item = -1, value = false) {
+    console.log("item: " + item + " value: " + value);
+    if (item == 0) {
+        numItems = value;
+    } else if (item > 0) {
         selectedFactors[item] = value;
     }
+
+    localStorage.setItem("numItems", numItems);
+    localStorage.setItem("selectedFactors", JSON.stringify(selectedFactors));
+
     if (document.getElementById("fac1").checked != selectedFactors[1]) document.getElementById("fac1").checked = selectedFactors[1];
     if (document.getElementById("fac2").checked != selectedFactors[2]) document.getElementById("fac2").checked = selectedFactors[2];
     if (document.getElementById("fac3").checked != selectedFactors[3]) document.getElementById("fac3").checked = selectedFactors[3];
@@ -128,14 +148,14 @@ function buildEntry(a, b, askResult, content, result) {
     resA.value = a;
     resB.value = b;
     resR.value = r;
-    inA.type = 'text';
-    inB.type = 'text';
-    inR.type = 'text';
-    resA.type = 'text';
+    inA.type = 'number';
+    inB.type = 'number';
+    inR.type = 'number';
+    resA.type = 'number';
     resA.disabled = true
-    resB.type = 'text';
+    resB.type = 'number';
     resB.disabled = true
-    resR.type = 'text';
+    resR.type = 'number';
     resR.disabled = true
 
     if (askResult) { // Ask result
