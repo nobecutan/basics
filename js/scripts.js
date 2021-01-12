@@ -13,7 +13,7 @@ var factorProbability = {
 }
 
 const defaultNumItems = 25;
-const defaultSelectedFactors = JSON.stringify({
+const defaultSelectedFactors = {
     1: true,
     2: true,
     3: true,
@@ -30,7 +30,7 @@ const defaultSelectedFactors = JSON.stringify({
     14: true,
     15: true,
     25: true,
-});
+};
 
 var numItems = localStorage.getItem("numItems");
 if (numItems == null) {
@@ -41,7 +41,7 @@ if (numItems == null) {
 var selectedFactors = JSON.parse(localStorage.getItem("selectedFactors"));
 if (selectedFactors == null) {
     selectedFactors = defaultSelectedFactors;
-    localStorage.setItem("selectedFactors", selectedFactors);
+    localStorage.setItem("selectedFactors", JSON.stringify(selectedFactors));
 }
 console.log(selectedFactors[2]);
 
