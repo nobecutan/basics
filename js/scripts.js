@@ -3,33 +3,33 @@ var startTime = null;
 var timerHandle = null;
 
 var factorProbability = {
-    3: 2,
-    7: 2,
-    11: 3,
-    12: 3,
-    13: 3,
-    14: 3,
-    15: 3,
+    "3": 2,
+    "7": 2,
+    "11": 3,
+    "12": 3,
+    "13": 3,
+    "14": 3,
+    "15": 3,
 }
 
 const defaultNumItems = 25;
 const defaultSelectedFactors = JSON.stringify({
-    1: true,
-    2: true,
-    3: true,
-    4: true,
-    5: true,
-    6: true,
-    7: true,
-    8: true,
-    9: true,
-    10: true,
-    11: true,
-    12: true,
-    13: true,
-    14: true,
-    15: true,
-    25: true,
+    "1": true,
+    "2": true,
+    "3": true,
+    "4": true,
+    "5": true,
+    "6": true,
+    "7": true,
+    "8": true,
+    "9": true,
+    "10": true,
+    "11": true,
+    "12": true,
+    "13": true,
+    "14": true,
+    "15": true,
+    "25": true,
 });
 
 var numItems = localStorage.getItem("numItems");
@@ -54,26 +54,26 @@ function isAllToT() {
 }
 
 function selectBasics(enabled) {
-    selectedFactors[1] =
-    selectedFactors[2] =
-    selectedFactors[3] =
-    selectedFactors[4] =
-    selectedFactors[5] =
-    selectedFactors[6] =
-    selectedFactors[7] =
-    selectedFactors[8] =
-    selectedFactors[9] =
-    selectedFactors[10] = enabled;
+    selectedFactors["1"] =
+    selectedFactors["2"] =
+    selectedFactors["3"] =
+    selectedFactors["4"] =
+    selectedFactors["5"] =
+    selectedFactors["6"] =
+    selectedFactors["7"] =
+    selectedFactors["8"] =
+    selectedFactors["9"] =
+    selectedFactors["10"] = enabled;
     setConfig();
 }
 
 function selectToT(enabled) {
-    selectedFactors[11] =
-    selectedFactors[12] =
-    selectedFactors[13] =
-    selectedFactors[14] =
-    selectedFactors[15] =
-    selectedFactors[25] = enabled;
+    selectedFactors["11"] =
+    selectedFactors["12"] =
+    selectedFactors["13"] =
+    selectedFactors["14"] =
+    selectedFactors["15"] =
+    selectedFactors["25"] = enabled;
     setConfig();
 }
 
@@ -82,28 +82,28 @@ function setConfig(item = -1, value = false) {
     if (item == 0) {
         numItems = value;
     } else if (item > 0) {
-        selectedFactors[item] = value;
+        selectedFactors["" + item] = value;
     }
 
     localStorage.setItem("numItems", numItems);
     localStorage.setItem("selectedFactors", JSON.stringify(selectedFactors));
 
-    if (document.getElementById("fac1").checked != selectedFactors[1]) document.getElementById("fac1").checked = selectedFactors[1];
-    if (document.getElementById("fac2").checked != selectedFactors[2]) document.getElementById("fac2").checked = selectedFactors[2];
-    if (document.getElementById("fac3").checked != selectedFactors[3]) document.getElementById("fac3").checked = selectedFactors[3];
-    if (document.getElementById("fac4").checked != selectedFactors[4]) document.getElementById("fac4").checked = selectedFactors[4];
-    if (document.getElementById("fac5").checked != selectedFactors[5]) document.getElementById("fac5").checked = selectedFactors[5];
-    if (document.getElementById("fac6").checked != selectedFactors[6]) document.getElementById("fac6").checked = selectedFactors[6];
-    if (document.getElementById("fac7").checked != selectedFactors[7]) document.getElementById("fac7").checked = selectedFactors[7];
-    if (document.getElementById("fac8").checked != selectedFactors[8]) document.getElementById("fac8").checked = selectedFactors[8];
-    if (document.getElementById("fac9").checked != selectedFactors[9]) document.getElementById("fac9").checked = selectedFactors[9];
-    if (document.getElementById("fac10").checked != selectedFactors[10]) document.getElementById("fac10").checked = selectedFactors[10];
-    if (document.getElementById("fac11").checked != selectedFactors[11]) document.getElementById("fac11").checked = selectedFactors[11];
-    if (document.getElementById("fac12").checked != selectedFactors[12]) document.getElementById("fac12").checked = selectedFactors[12];
-    if (document.getElementById("fac13").checked != selectedFactors[13]) document.getElementById("fac13").checked = selectedFactors[13];
-    if (document.getElementById("fac14").checked != selectedFactors[14]) document.getElementById("fac14").checked = selectedFactors[14];
-    if (document.getElementById("fac15").checked != selectedFactors[15]) document.getElementById("fac15").checked = selectedFactors[15];
-    if (document.getElementById("fac25").checked != selectedFactors[25]) document.getElementById("fac25").checked = selectedFactors[25];
+    if (document.getElementById("fac1").checked != selectedFactors["1"]) document.getElementById("fac1").checked = selectedFactors["1"];
+    if (document.getElementById("fac2").checked != selectedFactors["2"]) document.getElementById("fac2").checked = selectedFactors["2"];
+    if (document.getElementById("fac3").checked != selectedFactors["3"]) document.getElementById("fac3").checked = selectedFactors["3"];
+    if (document.getElementById("fac4").checked != selectedFactors["4"]) document.getElementById("fac4").checked = selectedFactors["4"];
+    if (document.getElementById("fac5").checked != selectedFactors["5"]) document.getElementById("fac5").checked = selectedFactors["5"];
+    if (document.getElementById("fac6").checked != selectedFactors["6"]) document.getElementById("fac6").checked = selectedFactors["6"];
+    if (document.getElementById("fac7").checked != selectedFactors["7"]) document.getElementById("fac7").checked = selectedFactors["7"];
+    if (document.getElementById("fac8").checked != selectedFactors["8"]) document.getElementById("fac8").checked = selectedFactors["8"];
+    if (document.getElementById("fac9").checked != selectedFactors["9"]) document.getElementById("fac9").checked = selectedFactors["9"];
+    if (document.getElementById("fac10").checked != selectedFactors["10"]) document.getElementById("fac10").checked = selectedFactors["10"];
+    if (document.getElementById("fac11").checked != selectedFactors["11"]) document.getElementById("fac11").checked = selectedFactors["11"];
+    if (document.getElementById("fac12").checked != selectedFactors["12"]) document.getElementById("fac12").checked = selectedFactors["12"];
+    if (document.getElementById("fac13").checked != selectedFactors["13"]) document.getElementById("fac13").checked = selectedFactors["13"];
+    if (document.getElementById("fac14").checked != selectedFactors["14"]) document.getElementById("fac14").checked = selectedFactors["14"];
+    if (document.getElementById("fac15").checked != selectedFactors["15"]) document.getElementById("fac15").checked = selectedFactors["15"];
+    if (document.getElementById("fac25").checked != selectedFactors["25"]) document.getElementById("fac25").checked = selectedFactors["25"];
 
     if (document.getElementById("selBasic").checked != isAllBasics()) document.getElementById("selBasic").checked = isAllBasics();
     if (document.getElementById("selToT").checked != isAllToT()) document.getElementById("selToT").checked = isAllToT();
