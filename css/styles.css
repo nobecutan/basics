@@ -106,3 +106,10 @@ input[disabled] {
     background-color: #FFFFFF99;
     margin-top: 0.25em;
 }
+
+#btnPrint {
+    position: absolute;
+    right: 1.2em;
+    top: 1.2em;
+    font-size: 110%;
+}
