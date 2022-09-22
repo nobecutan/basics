@@ -16,25 +16,47 @@ body {
 .calc div {
     padding: 0.25em;
     min-width: 15em;
+    flex-basis: 32%
 }
 
 .boxGrpHeader {
     width: 8.5em;
     display: inline-block;
 }
+
 .boxGrp {
     border: 1px solid gray;
     padding: 0.25em;
     white-space: nowrap;
 }
+
 @media print {
-    #config, #timer {
+
+    html,
+    body {
+        height: 100%;
+    }
+
+    #calcPage {
+        margin-top: -1em;
+    }
+
+    #calcPage,
+    #resultPage {
+        height: 99%;
+        overflow: hidden;
+    }
+
+    #config,
+    #timer {
         display: none;
     }
-    #resultPage {
-        page-break-before: always;
+
+    .calc div {
+        min-width: 13.5em;
     }
 }
+
 @media screen {
     #resultPage {
         display: none;
@@ -43,32 +65,17 @@ body {
     #content {
         margin-bottom: 3em;
     }
+
+    .calc div {
+        min-width: 15em;
+        flex-basis: 32%
+    }
 }
 
 .calc {
-    column-count: 3;
-    column-gap: 2em;
-    column-rule: solid 1px lightgray;
-}
-@media screen and (max-width: 33em) {
-    .calc {
-        column-count: 1;
-        width: 16em;
-    }
-}
-
-@media screen and (max-width: 50em) {
-    .calc {
-        column-count: 2;
-        width: 33em;
-    }
-}
-
-@media screen and (min-width: 50em) {
-    .calc {
-        column-count: 3;
-        width: 50em;
-    }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 input[type=number] {
@@ -78,6 +85,17 @@ input[type=number] {
     text-align: right;
     background-color: unset;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
 input[disabled] {
     border-style: none;
     width: 3em;
@@ -85,12 +103,13 @@ input[disabled] {
 }
 
 .query {
-    border-bottom: 1px solid black!important;
+    border-bottom: 1px solid black !important;
 }
 
 .correct {
     background-color: #00880022;
 }
+
 .incorrect {
     background-color: #88000022;
 }
@@ -98,8 +117,7 @@ input[disabled] {
 #timer {
     position: fixed;
     bottom: 0;
-    left: 0;
-    right: 0;
+    right: 5px;
     padding-left: 0.25em;
     font-size: xx-large;
     color: gray;

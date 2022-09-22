@@ -12,24 +12,24 @@ var factorProbability = {
     15: 3,
 }
 
-const defaultNumItems = 25;
+const defaultNumItems = 24;
 const defaultSelectedFactors = {
-    1: true,
+    1: false,
     2: true,
-    3: true,
-    4: true,
+    3: false,
+    4: false,
     5: true,
-    6: true,
-    7: true,
-    8: true,
-    9: true,
+    6: false,
+    7: false,
+    8: false,
+    9: false,
     10: true,
-    11: true,
-    12: true,
-    13: true,
-    14: true,
-    15: true,
-    25: true,
+    11: false,
+    12: false,
+    13: false,
+    14: false,
+    15: false,
+    25: false,
 };
 
 var numItems = localStorage.getItem("numItems");
