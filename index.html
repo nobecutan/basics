@@ -17,7 +17,7 @@
     <div id="config">
         <h1>Einstellungen</h1>
         <div>
-            <select id="numItems" onchange="setConfig(0, this.value);">
+            <select id="numItems" onchange="setNumItemsConfig(this.value);">
                 <option value="10">10</option>
                 <option value="15">15</option>
                 <option value="24">24</option>
@@ -28,32 +28,42 @@
 
         <div id="grpBasic">
             <span class="boxGrpHeader"><input id="selBasic" type="checkbox"
-                    onchange="selectBasics(this.checked)" />&nbsp;kleines&nbsp;1x1</span>
+                    onchange="setSmallTabs(this.checked)" />&nbsp;kleines&nbsp;1x1</span>
             <span class="boxGrp">
-                <input id="fac1" type="checkbox" onchange="setConfig(1, this.checked);" />&#8239;1
-                <input id="fac2" type="checkbox" onchange="setConfig(2, this.checked);" />&#8239;2
-                <input id="fac3" type="checkbox" onchange="setConfig(3, this.checked);" />&#8239;3
-                <input id="fac4" type="checkbox" onchange="setConfig(4, this.checked);" />&#8239;4
-                <input id="fac5" type="checkbox" onchange="setConfig(5, this.checked);" />&#8239;5
-                <input id="fac6" type="checkbox" onchange="setConfig(6, this.checked);" />&#8239;6
-                <input id="fac7" type="checkbox" onchange="setConfig(7, this.checked);" />&#8239;7
-                <input id="fac8" type="checkbox" onchange="setConfig(8, this.checked);" />&#8239;8
-                <input id="fac9" type="checkbox" onchange="setConfig(9, this.checked);" />&#8239;9
-                <input id="fac10" type="checkbox" onchange="setConfig(10, this.checked);" />&#8239;10
+                <input id="tab1" type="checkbox" onchange="setTabConfig(1, this.checked);" />&#8239;1
+                <input id="tab2" type="checkbox" onchange="setTabConfig(2, this.checked);" />&#8239;2
+                <input id="tab3" type="checkbox" onchange="setTabConfig(3, this.checked);" />&#8239;3
+                <input id="tab4" type="checkbox" onchange="setTabConfig(4, this.checked);" />&#8239;4
+                <input id="tab5" type="checkbox" onchange="setTabConfig(5, this.checked);" />&#8239;5
+                <input id="tab6" type="checkbox" onchange="setTabConfig(6, this.checked);" />&#8239;6
+                <input id="tab7" type="checkbox" onchange="setTabConfig(7, this.checked);" />&#8239;7
+                <input id="tab8" type="checkbox" onchange="setTabConfig(8, this.checked);" />&#8239;8
+                <input id="tab9" type="checkbox" onchange="setTabConfig(9, this.checked);" />&#8239;9
+                <input id="tab10" type="checkbox" onchange="setTabConfig(10, this.checked);" />&#8239;10
             </span>
         </div>
         <div id="grpToT">
             <span class="boxGrpHeader"><input id="selToT" type="checkbox"
-                    onchange="selectToT(this.checked)" />&nbsp;großes&nbsp;1x1</span>
+                    onchange="setLargeTabs(this.checked)" />&nbsp;großes&nbsp;1x1</span>
             <span class="boxGrp">
-                <input id="fac11" type="checkbox" onchange="setConfig(11, this.checked);" />&#8239;11
-                <input id="fac12" type="checkbox" onchange="setConfig(12, this.checked);" />&#8239;12
-                <input id="fac13" type="checkbox" onchange="setConfig(13, this.checked);" />&#8239;13
-                <input id="fac14" type="checkbox" onchange="setConfig(14, this.checked);" />&#8239;14
-                <input id="fac15" type="checkbox" onchange="setConfig(15, this.checked);" />&#8239;15
-                <input id="fac25" type="checkbox" onchange="setConfig(25, this.checked);" />&#8239;25
+                <input id="tab11" type="checkbox" onchange="setTabConfig(11, this.checked);" />&#8239;11
+                <input id="tab12" type="checkbox" onchange="setTabConfig(12, this.checked);" />&#8239;12
+                <input id="tab13" type="checkbox" onchange="setTabConfig(13, this.checked);" />&#8239;13
+                <input id="tab14" type="checkbox" onchange="setTabConfig(14, this.checked);" />&#8239;14
+                <input id="tab15" type="checkbox" onchange="setTabConfig(15, this.checked);" />&#8239;15
+                <input id="tab25" type="checkbox" onchange="setTabConfig(25, this.checked);" />&#8239;25
             </span>
         </div>
+        <div>
+            Nur&nbsp;Ergebnis: <input id="chkTask" type="checkbox" onchange="setResultOnly(this.checked)" />
+        </div>
+        <div>
+            Sortierung:
+            <input type="radio" name="sort" value="asc" id="sort_asc" onchange="setSort(this.value)" />&nbsp;aufsteigend
+            <input type="radio" name="sort" value="desc" id="sort_desc" onchange="setSort(this.value)" />&nbsp;absteigend
+            <input type="radio" name="sort" value="rnd" id="sort_rnd" onchange="setSort(this.value)" />&nbsp;zufällig
+        </div>
+
         <button id="btnPrint" onclick="window.print()">Drucken</button>
     </div>
     <div id="calcPage">
@@ -65,7 +75,8 @@
         <div id="result" class="calc"></div>
     </div>
     <div id="timer">00:00</div>
-    <script src="js/scripts.js"></script>
+    <script src="js/setup.js"></script>
+    <script src="js/basics.js"></script>
 </body>
 
 </html>
