@@ -15,8 +15,8 @@ body {
 
 .calc div {
     padding: 0.25em;
-    min-width: 15em;
-    flex-basis: 32%
+    min-width: 13em;
+    /* flex-basis: 32% */
 }
 
 .boxGrpHeader {
@@ -66,10 +66,10 @@ body {
         margin-bottom: 3em;
     }
 
-    .calc div {
+    /* .calc div {
         min-width: 15em;
         flex-basis: 32%
-    }
+    } */
 }
 
 .calc {
@@ -98,12 +98,13 @@ input[type=number] {
 
 input[disabled] {
     border-style: none;
-    width: 3em;
+    width: 2em;
     background-color: unset;
 }
 
 .query {
     border-bottom: 1px solid black !important;
+    width: 3em !important;
 }
 
 .correct {
