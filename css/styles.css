@@ -15,7 +15,7 @@ body {
 
 .calc div {
     padding: 0.25em;
-    min-width: 13em;
+    min-width: 9em;
     /* flex-basis: 32% */
 }
 
