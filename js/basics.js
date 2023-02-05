@@ -8,6 +8,8 @@ localStorage.setItem = function () {
 var timerHandle = null;
 var startTime = null;
 var errors = 0;
+var lastTable = 0;
+var lastFactor = 0;
 
 
 function rand(min, max) { // min and max included
@@ -174,8 +176,14 @@ function build() {
     switch (config.order) {
         case "rnd":
             for (var curItem=0; curItem<config.numItems; ++curItem) {
-                var table = whichTable(tables);
-                var factor = whichFactor(table);
+                var table = 0;
+                var factor = 0;
+                do {
+                    table = whichTable(tables);
+                    factor = whichFactor(table);
+                } while (table == lastTable && factor == lastFactor); // Nicht zweimal die selbe Rechnung
+                lastFactor = factor;
+                lastTable = table;
                 buildEntry(factor, table, whatToAsk(), content, result);
             }
             break;
