@@ -106,6 +106,17 @@ function buildEntry(a, b, whatToAsk, content, result) {
             inB.setAttribute("expected-value", b);
             inR.value = r;
             break;
+        case "inSaetze":
+            spanTimes.innerHTML = '&nbsp;in';
+            resR.classList.add("query");
+            inA.disabled = true;
+            inB.disabled = true;
+            inA.value = a;
+            inB.value = r;
+            inR.setAttribute("expected-value", b);
+            resB.value = r;
+            resR.value = b;
+            break;
         default:
             resR.classList.add("query");
             inA.disabled = true;

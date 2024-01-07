@@ -44,6 +44,7 @@ if (config == null) {
         "numItems": defaultNumItems,
         "selectedTables": defaultSelectedTables,
         "resultOnly": true,
+        "inSaetze": false,
         "order": "asc",
     }
     storeConfig();
@@ -57,6 +58,7 @@ function storeConfig() {
 function updateConfigPage() {
     document.getElementById("numItems").value = config.numItems;
     document.getElementById("chkTask").checked = config.resultOnly;
+    document.getElementById("chkInSaetze").checked = config.inSaetze;
     document.getElementById("sort_" + config.order).checked = true;
 
     for (let k in tablesConfig) {
@@ -132,6 +134,14 @@ function setResultOnly(checked) {
     storeConfig();
 }
 
+function setInSaetze(checked) {
+    console.log("Set In Saetze: " + checked);
+    config.inSaetze = checked;
+    buildWhatToAskTable();
+    updateConfigPage();
+    storeConfig();
+}
+
 function addToSelTabs(value) {
     var k = value < 10 ? "0" + value : "" + value;
     if (!config.selectedTables.includes(k)) {
@@ -172,9 +182,10 @@ function isAllLargeTables() {
 
 function buildWhatToAskTable() {
     whatToAskTable = [];
+
     for (const [key, numEntries] of Object.entries(config.resultOnly ? askResultOnlyConfig : askAllConfig)) {
         for (var i = 0; i < numEntries; ++i) {
-            whatToAskTable.push(key);
+            whatToAskTable.push(config.inSaetze && key == "result" ? "inSaetze" : key);
         }
     }
 }
